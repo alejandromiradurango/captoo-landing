@@ -27,15 +27,15 @@ const Footer = () => {
 
   return (
     <footer className="bg-violet-900 text-white">
-        <div className="container py-8">
-            <div className="pt-12 flex justify-center gap-8">
+        <div className="container py-8 px-6 lg:px-0">
+            <div className="py-8 lg:py-0 lg:pt-12 flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8">
                 <a className="font-semibold uppercase" href="https://www.captto.com/aviso-legal/" target="_blank" rel="noreferrer">Aviso legal</a>
                 <a className="font-semibold uppercase" href="https://www.captto.com/politica-privacidad/" target="_blank" rel="noreferrer">Política de privacidad</a>
                 <a className="font-semibold uppercase" href="https://www.captto.com/politica-de-cookies/" target="_blank" rel="noreferrer">Política de cookies</a>
             </div>
             <hr className="py-px bg-white my-3" />
-            <div className="pt-4 flex justify-between">
-                <span>Copyright © {new Date().getFullYear()} Captto. Todos los derechos reservados.</span>
+            <div className="pt-4 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-0">
+                <span className="text-center lg:text-start">Copyright © {new Date().getFullYear()} Captto. Todos los derechos reservados.</span>
                 <div className="flex items-center text-2xl gap-2"> 
                     {socialLinks.map((social, index) => (
                         <a className="hover:brightness-75 transition-all duration-300" key={index} href={social.url} title={social.title}>

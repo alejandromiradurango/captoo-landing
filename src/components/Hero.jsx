@@ -1,4 +1,4 @@
-import { featureFour, featureOne, featureThree, featureTwo } from "../assets";
+import { featureFour, featureOne, featureThree, featureTwo, logosKitDigital } from "../assets";
 
 const Feature = ({img, text}) => (
     <div className="flex flex-col items-center gap-4">
@@ -96,7 +96,7 @@ const Hero = () => {
                         <Feature key={index} img={img} text={text}/>
                     ))}
                 </div>
-                <img src="https://www.captto.com/wp-content/uploads/2022/12/logos-kit-digital.svg" alt="" />
+                <img src={logosKitDigital} alt="" />
             </div>
         </div>
         <div className="lg:w-2/6 px-6 lg:px-0">
