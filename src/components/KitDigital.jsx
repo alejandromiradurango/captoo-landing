@@ -13,7 +13,7 @@ const KitDigital = () => {
   ]
   
     return (
-    <section className="my-12">
+    <section className="my-12" id="kitdigital">
         <div>
             <h1 className="font-semibold text-4xl text-violet-900 text-center py-10">¿Conoces el kit digital?</h1>
             <p className="max-w-4xl mx-auto text-center text-gray-500">Es un programa de ayudas que pone a disposición el Ministerio de Asuntos Económicos y Transformación Digital cuyo objetivo es financiar los costes de transformación digital de las pequeñas y medianas empresas en todo el territorio nacional. Descarga aquí la guía.</p>

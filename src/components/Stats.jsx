@@ -20,7 +20,7 @@ const Stats = () => {
   
   
     return (
-    <section className="bg-violet-50">
+    <section className="bg-violet-50" id="porquenosotros">
         <div className="container py-16">
             <h1 className="text-center text-5xl font-semibold mb-3 text-violet-900">¿Por qué con nosotros?</h1>
             <p className="text-gray-500 max-w-sm text-center mx-auto">Son muchos los beneficios de escoger a captto como tu agente digitalizador.</p>
