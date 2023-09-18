@@ -1,4 +1,5 @@
 import {BiCheckCircle} from 'react-icons/bi'
+import { imgKitDigital } from '../assets'
 
 const KitDigital = () => {
   
@@ -20,7 +21,7 @@ const KitDigital = () => {
         </div>
         <div className="container flex flex-col lg:flex-row mt-10 justify-center gap-12 lg:gap-12 px-6 lg:px-0">
             <div className="lg:w-2/6">
-                <img className="rounded-full" src="https://www.captto.com/wp-content/uploads/2023/07/img-conoces_kit_digital.webp" alt="" />
+                <img className="rounded-full" src={imgKitDigital} alt="" />
             </div>
             <div className='lg:w-2/5'> 
                 <h1 className="font-semibold text-[#00DC93] text-3xl mb-6">Requisitos</h1>   

@@ -39,7 +39,7 @@ const Form = () => {
                             <input type="text"  className="p-2 w-full rounded-sm"/>
                         ) : (
                             <select className="p-3 w-full rounded-sm">
-                                <option value="" disabled>Seleccione</option>
+                                <option value="" disabled selected>Seleccione</option>
                                 {input.options.map((option, index) => (
                                     <option key={index}>{option}</option>
                                 ))}
