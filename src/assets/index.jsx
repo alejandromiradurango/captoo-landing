@@ -1,7 +1,2 @@
-export {default as featureOne} from './feature1.svg'
-export {default as featureTwo} from './feature2.svg'
-export {default as featureThree} from './feature3.svg'
-export {default as featureFour} from './feature4.svg'
-export {default as logo} from './logo_captto.svg'
 export {default as imgKitDigital} from './img-conoces_kit_digital.webp'
 export {default as logosKitDigital} from './logos-kit-digital.svg'

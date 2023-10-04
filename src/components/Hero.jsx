@@ -1,8 +1,9 @@
-import { featureFour, featureOne, featureThree, featureTwo, logosKitDigital } from "../assets";
+import { logosKitDigital } from "../assets";
+import { FeatureFour, FeatureOne, FeatureThree, FeatureTwo } from '../assets/Icons';
 
 const Feature = ({img, text}) => (
     <div className="flex flex-col items-center gap-4">
-        <img className="w-32 h-32" src={img} alt="Feature" />
+         {img}
         <span className="font-semibold text-violet-900 text-lg">{text}</span>
     </div>
 )
@@ -11,19 +12,24 @@ const Form = () => {
 
     const inputs = [
         {
-            label: 'Nombre'
+            label: 'Nombre',
+            id: 'nombre'
         },
         {
-            label: 'Apellido'
+            label: 'Apellido',
+            id: 'apellido'
         },
         {
-            label: 'Email'
+            label: 'Email',
+            id: 'email'
         },
         {
-            label: 'Teléfono'
+            label: 'Teléfono',
+            id: 'telefono'
         },
         {
             label: 'Soy',
+            id: 'soy',
             options: ["Empresa", "Autonomo", "Particular"]
         },
     ];
@@ -34,11 +40,11 @@ const Form = () => {
             <form action="" className="flex flex-col gap-4 my-4" id='formulario'>
                 {inputs.map((input, index) => (
                     <div key={index} className="">
-                        <label htmlFor="" className="block text-white font-semibold mb-1">{input.label}<span className="text-red-600"> *</span></label>
+                        <label htmlFor={input.id} className="block text-white font-semibold mb-1">{input.label}<span className="text-red-600"> *</span></label>
                         {!input.options ? (
-                            <input type="text"  className="p-2 w-full rounded-sm"/>
+                            <input type="text" id={input.id} className="p-2 w-full rounded-sm"/>
                         ) : (
-                            <select className="p-3 w-full rounded-sm">
+                            <select className="p-3 w-full rounded-sm" id={input.id}>
                                 <option value="" disabled selected>Seleccione</option>
                                 {input.options.map((option, index) => (
                                     <option key={index}>{option}</option>
@@ -48,12 +54,12 @@ const Form = () => {
                     </div>
                 ))}
                 <div>
-                    <input type="checkbox" name="" id="" />
-                    <span className="text-white ml-2 text-sm">He leído y acepto la <a href="https://www.acelerakitdigital.com/politica-privacidad/" className="underline text-[#00DC93]">politica de privacidad</a><span className="text-red-600">*</span></span>
+                    <input type="checkbox" name="" id="politica-de-privacidad" />
+                    <label htmlFor='politica-de-privacidad' className="text-white ml-2 text-sm">He leído y acepto la <a href="https://www.acelerakitdigital.com/politica-privacidad/" className="underline text-[#00DC93]">politica de privacidad</a><span className="text-red-600">*</span></label>
                 </div>
                 <div>
-                    <input type="checkbox" name="" id="" />
-                    <span className="text-white ml-2 text-sm">Acepto recibir otras comunicaciones de Publicidad Digital Multimedia Internacional, S.L..<span className="text-red-600">*</span></span>
+                    <input type="checkbox" name="" id="notificaciones" />
+                    <label htmlFor='notificaciones' className="text-white ml-2 text-sm">Acepto recibir otras comunicaciones de Publicidad Digital Multimedia Internacional, S.L..<span className="text-red-600">*</span></label>
                 </div>
                 <button type="submit" className="bg-[#00DC93] text-white font-semibold py-3 rounded-sm">Contacta</button>
             </form>
@@ -65,19 +71,19 @@ const Hero = () => {
 
   const features = [
     {
-        img: featureOne,
+        img: <FeatureOne className="w-32 h-32"/>,
         text: 'Diseño web'
     },
     {
-        img: featureTwo,
+        img: <FeatureTwo className="w-32 h-32"/>,
         text: 'Comercio electrónico'
     },
     {
-        img: featureThree,
+        img: <FeatureThree className="w-32 h-32"/>,
         text: 'SEO'
     },
     {
-        img: featureFour,
+        img: <FeatureFour className="w-32 h-32"/>,
         text: 'Redes sociales'
     },
   ];
