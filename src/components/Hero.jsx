@@ -1,9 +1,9 @@
 import { logosKitDigital } from "../assets";
 import { FeatureFour, FeatureOne, FeatureThree, FeatureTwo } from '../assets/Icons';
 
-const Feature = ({img, text}) => (
+const Feature = ({icon, text}) => (
     <div className="flex flex-col items-center gap-4">
-         {img}
+         {icon}
         <span className="font-semibold text-violet-900 text-lg">{text}</span>
     </div>
 )
@@ -71,19 +71,19 @@ const Hero = () => {
 
   const features = [
     {
-        img: <FeatureOne className="w-32 h-32"/>,
+        icon: <FeatureOne className="w-32 h-32"/>,
         text: 'Diseño web'
     },
     {
-        img: <FeatureTwo className="w-32 h-32"/>,
+        icon: <FeatureTwo className="w-32 h-32"/>,
         text: 'Comercio electrónico'
     },
     {
-        img: <FeatureThree className="w-32 h-32"/>,
+        icon: <FeatureThree className="w-32 h-32"/>,
         text: 'SEO'
     },
     {
-        img: <FeatureFour className="w-32 h-32"/>,
+        icon: <FeatureFour className="w-32 h-32"/>,
         text: 'Redes sociales'
     },
   ];
@@ -98,11 +98,11 @@ const Hero = () => {
             </div>
             <div className="">
                 <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0">
-                    {features.map(({img, text}, index) => (
-                        <Feature key={index} img={img} text={text}/>
+                    {features.map(({icon, text}, index) => (
+                        <Feature key={index} icon={icon} text={text}/>
                     ))}
                 </div>
-                <img src={logosKitDigital} alt="" />
+                <img src={logosKitDigital} alt="" width={1091} height={117} />
             </div>
         </div>
         <div className="lg:w-2/6 px-6 lg:px-0">

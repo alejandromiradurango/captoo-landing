@@ -21,7 +21,7 @@ const KitDigital = () => {
         </div>
         <div className="container flex flex-col lg:flex-row mt-10 justify-center gap-12 lg:gap-12 px-6 lg:px-0">
             <div className="lg:w-2/6">
-                <img className="rounded-full" src={imgKitDigital} alt="" />
+                <img className="rounded-full" src={imgKitDigital} alt="Imagen de un computador portatil en una mesa que esta dentro la web de kit digital" width={514} height={514}/>
             </div>
             <div className='lg:w-2/5'> 
                 <h1 className="font-semibold text-[#00DC93] text-3xl mb-6">Requisitos</h1>   
