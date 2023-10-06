@@ -34,20 +34,24 @@ const Form = () => {
         },
     ];
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
     return (
         <div className="bg-gray-700 w-full h-full py-8 px-14">
             <h2 className="text-[#00DC93] font-semibold text-center text-3xl">Escríbenos</h2>
-            <form action="" className="flex flex-col gap-4 my-4" id='formulario'>
-                {inputs.map((input, index) => (
-                    <div key={index} className="">
-                        <label htmlFor={input.id} className="block text-white font-semibold mb-1">{input.label}<span className="text-red-600"> *</span></label>
-                        {!input.options ? (
-                            <input type="text" id={input.id} className="p-2 w-full rounded-sm"/>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 my-4" id='formulario'>
+                {inputs.map(({ id, label, options}) => (
+                    <div key={id}>
+                        <label htmlFor={id} className="block text-white font-semibold mb-1">{label}<span className="text-red-600"> *</span></label>
+                        {!options ? (
+                            <input type="text" name={id} id={id} className="p-2 w-full rounded-sm"/>
                         ) : (
-                            <select className="p-3 w-full rounded-sm" id={input.id}>
+                            <select className="p-3 w-full rounded-sm" id={id}>
                                 <option value="" disabled selected>Seleccione</option>
-                                {input.options.map((option, index) => (
-                                    <option key={index}>{option}</option>
+                                {options.map((option) => (
+                                    <option key={option}>{option}</option>
                                 ))}
                             </select>
                         )}

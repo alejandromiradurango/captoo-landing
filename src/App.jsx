@@ -1,13 +1,16 @@
-import { Footer, Header, Hero, KitDigital, Navigation, Stats } from "./components"
+import { Footer, Header, Hero, KitDigital, Navigation, Stats, Contact } from "./components"
 
 const App = () => {
   return (
     <>
       <Header />
-      <Hero />
-      <Navigation />
-      <KitDigital />
-      <Stats />
+      <main>
+        <Hero />
+        <Navigation />
+        <KitDigital />
+        <Stats />
+      </main>
+      <Contact />
       <Footer />
     </>
   )
