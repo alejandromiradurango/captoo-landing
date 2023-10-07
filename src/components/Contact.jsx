@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { IconCaptto } from '../assets/Icons'
+import { ERROR_ALERT, SUCCESS_ALERT, sendForm } from '../services'
+import { useEffect } from 'react'
 
 const Contact = () => {
   const [showWidget, setShowWidget] = useState(false)
@@ -21,46 +23,35 @@ const Contact = () => {
 
 const Widget = ({ handleClick }) => {
 
-    const initialState = {
-        tel: '',
-        nombre: '',
-        apellido: ''
-    }
+    const initialState = useMemo(() => ({
+            tel: '',
+            nombre: '',
+            apellido: ''
+    }), [])
 
     const [fields, setFields] = useState(initialState)
 
-    const [error, setError] = useState(false)
+    const [alert, setAlert] = useState(false)
 
     const { tel, nombre, apellido } = fields
 
-    const handleSubmit = async e => {
+    const handleSubmit = async event => {
+        event.preventDefault();
 
-        e.preventDefault()
-
-        if(
-           tel.trim() === '' ||
-           nombre.trim() === '' ||
-           apellido.trim() === ''
-        ){
-            setError(true);
-            return;
-        }
-
-        setError(false);
-
-        const response = await fetch('https://eo9ct1p317tykir.m.pipedream.net', {
-            method: 'POST',
-            header: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(fields)
+        const result = await sendForm({
+            data: fields,
+            handleAlert: setAlert,
+            type: 'widget'
         })
 
-        const result = await response.json();
-        console.log(result);
-
-        setFields(initialState)
+        console.log(result)
     }
+    
+    useEffect(() => {
+        if(alert?.type === SUCCESS_ALERT){
+            setFields(initialState)
+        }
+    }, [alert, initialState])
 
     const handleChange = e => {
         setFields({
@@ -101,8 +92,8 @@ const Widget = ({ handleClick }) => {
             <form onSubmit={handleSubmit}>
                 <h6 className='p-4 border-b text-center lg:text-left'>Dejanos tu teléfono y te llamaremos en unos minutos</h6>
                 <div className='max-w-sm mx-auto flex flex-col gap-3 p-4 [&>label>input]:w-full [&>label>input]:border [&>label>input]:rounded-full [&>label>input]:p-3 py-6'>
-                    {error 
-                    ? <span className='py-2 px-6 font-semibold text-center rounded-full text-white bg-red-500 block'>Todos los campos son requeridos</span>
+                    {alert 
+                    ? <span className={`py-2 px-6 font-semibold text-center rounded text-white ${alert.type === ERROR_ALERT ? 'bg-red-500' : 'bg-green-500'}  block`}>{alert.message}</span>
                     : null
                     }
                     {inputs.map(({ id, label, name, value }) => (
