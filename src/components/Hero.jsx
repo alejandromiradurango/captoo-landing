@@ -152,6 +152,9 @@ const Hero = () => {
                 <h1 className="text-3xl lg:text-5xl 2xl:text-6xl mb-6">Nos ocupamos de tramitar tu <b className="font-semibold">kit digital</b> de hasta <b className="font-semibold">12.000€.</b></h1>
                 <p className="text-lg">Ponte en contacto con nosotros y cuéntanos en qué servicios estás interesado.</p>
             </div>
+            <div className='block lg:hidden'>
+                <Form />
+            </div>
             <div className="">
                 <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0">
                     {features.map(({icon, text}, index) => (
@@ -161,7 +164,7 @@ const Hero = () => {
                 <img src={logosKitDigital} alt="" width={1091} height={117} />
             </div>
         </div>
-        <div className="lg:w-2/6 px-6 lg:px-0">
+        <div className="lg:w-2/6 px-6 lg:px-0 hidden lg:block">
             <Form />
         </div>
     </section>
