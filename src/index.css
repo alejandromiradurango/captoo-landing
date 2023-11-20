@@ -66,6 +66,44 @@
   src: url(./fonts/WorkSans-Black.ttf);
 }
 
+#soluciones {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  grid-template-areas: 
+    'text'
+    'image'
+    'form'
+    'features'
+  ;
+}
+
+@media (width > 1100px) {
+  #soluciones {
+    grid-template-columns: 1fr minmax(auto, 550px);
+    grid-template-areas:
+      'text form'
+      'features form'
+      'image form'
+  }
+}
+
+/* #form {
+  grid-area: form
+}
+
+#text {
+  grid-area: text
+}
+
+#features {
+  grid-area: features
+}
+
+#image {
+  grid-area: image
+} */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

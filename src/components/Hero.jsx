@@ -87,7 +87,7 @@ const Form = () => {
     ];
 
     return (
-        <div className="bg-gray-700 w-full h-full py-8 px-14">
+        <div className="bg-gray-700 w-full h-full py-8 px-14 [grid-area:form]">
             <h2 className="text-[#00DC93] font-semibold text-center text-3xl">Escríbenos</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 my-4" id='formulario'>
                 {alert 
@@ -145,28 +145,19 @@ const Hero = () => {
   ];
 
   return (
-    <section className="container flex flex-col lg:flex-row mt-6 lg:mt-12 lg:mb-24">
-        <div className="lg:w-4/6 lg:h-96 mb-12 lg:mb-0 px-6 lg:px-0 flex flex-col gap-12 2xl:gap-48" id="soluciones">
-            <div>
-                <p className="mb-8 lg:text-xl">SOMOS UNA <b className="font-semibold">AGENCIA DE MARKETING</b> CON MÁS DE 15 AÑOS DE EXPERIENCIA</p>
-                <h1 className="text-3xl lg:text-5xl 2xl:text-6xl mb-6">Nos ocupamos de tramitar tu <b className="font-semibold">kit digital</b> de hasta <b className="font-semibold">12.000€.</b></h1>
-                <p className="text-lg">Ponte en contacto con nosotros y cuéntanos en qué servicios estás interesado.</p>
-            </div>
-            <div className='block lg:hidden'>
-                <Form />
-            </div>
-            <div className="">
-                <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0">
-                    {features.map(({icon, text}, index) => (
-                        <Feature key={index} icon={icon} text={text}/>
-                    ))}
-                </div>
-                <img src={logosKitDigital} alt="" width={1091} height={117} />
-            </div>
+    <section className="container mt-6 lg:mt-12 lg:mb-24" id='soluciones'>
+        <div className='[grid-area:text]'>
+            <p className="mb-8 lg:text-xl">SOMOS UNA <b className="font-semibold">AGENCIA DE MARKETING</b> CON MÁS DE 15 AÑOS DE EXPERIENCIA</p>
+            <h1 className="text-3xl lg:text-5xl 2xl:text-6xl mb-6">Nos ocupamos de tramitar tu <b className="font-semibold">kit digital</b> de hasta <b className="font-semibold">12.000€.</b></h1>
+            <p className="text-lg">Ponte en contacto con nosotros y cuéntanos en qué servicios estás interesado.</p>
         </div>
-        <div className="lg:w-2/6 px-6 lg:px-0 hidden lg:block">
-            <Form />
+        <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0 [grid-area:features]">
+            {features.map(({icon, text}, index) => (
+                <Feature key={index} icon={icon} text={text}/>
+            ))}
         </div>
+        <img className='[grid-area:image]' src={logosKitDigital} alt="" width={1091} height={117} />
+        <Form />
     </section>
   )
 }
