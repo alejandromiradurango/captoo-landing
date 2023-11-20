@@ -88,22 +88,6 @@
   }
 }
 
-/* #form {
-  grid-area: form
-}
-
-#text {
-  grid-area: text
-}
-
-#features {
-  grid-area: features
-}
-
-#image {
-  grid-area: image
-} */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
