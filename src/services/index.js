@@ -26,7 +26,7 @@ export const sendForm = async ({ data, handleAlert, type}) =>  {
 
     handleAlert(null);
 
-    const response = await fetch('https://eo9ct1p317tykir.m.pipedream.net', {
+    const response = await fetch('https://eo3kdq0qabeo5sb.m.pipedream.net', {
         method: 'POST',
         header: {
             'Content-Type': 'application/json'
