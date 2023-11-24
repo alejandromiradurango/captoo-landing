@@ -1,4 +1,3 @@
-import { useEffect, useMemo, useState } from "react";
 import { logosKitDigital } from "../assets";
 import {
   FeatureFour,
@@ -6,7 +5,6 @@ import {
   FeatureThree,
   FeatureTwo,
 } from "../assets/Icons";
-import { ERROR_ALERT, SUCCESS_ALERT, sendForm } from "../services";
 import HubSpotForm from 'react-hubspot-form';
 
 const Feature = ({ icon, text }) => (
@@ -51,11 +49,15 @@ const Form = () => {
       </div>
       <div className="py-4 bg-purple-800 text-white flex flex-col items-center">
         <h2 className="text-2xl mb-4">Te llamamos <strong>GRATIS</strong></h2>
-        <form className="w-8/12 mx-auto text-black" onSubmit={handleSubmit}>
-            <input type="text" className="w-full rounded-full p-2" name="telefono" placeholder="Teléfono"/>
+        <form className="w-8/12 mx-auto text-black flex flex-col gap-4" onSubmit={handleSubmit}>
+            <input type="text" className="w-full rounded-full p-2" name="telefono" placeholder="Teléfono" required/>
+            <label htmlFor="" className="text-white">
+                <input type="checkbox" name="acceptPolicy" id="" required/> Acepta la politica de privacidad para que te podamos llamar
+            </label>
+            <button type="submit" className="py-3 w-full rounded-full bg-[#00dc93] text-white">Solicitar llamada</button>
         </form>
       </div>
-      <div className="bg-gray-700 w-full h-auto py-4 px-14">
+      <div className="bg-gray-700 w-full h-auto py-4 pl-12">
         <h2 className="text-[#00DC93] font-semibold text-center text-3xl mb-3">
           Escríbenos
         </h2>  
@@ -93,7 +95,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="container mt-6 lg:mt-12 lg:mb-24" id="soluciones">
+    <section className="container mt-6 lg:mt-12 lg:mb-24 px-6" id="soluciones">
       <div className="[grid-area:text]">
         <p className="mb-8 lg:text-xl">
           SOMOS UNA <b className="font-semibold">AGENCIA DE MARKETING</b> CON
