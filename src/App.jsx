@@ -1,4 +1,4 @@
-import { Footer, Header, Hero, KitDigital, Navigation, Stats, Contact } from "./components"
+import { Footer, Header, Hero, KitDigital, Navigation, Stats } from "./components"
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
         <KitDigital />
         <Stats />
       </main>
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </>
   )
