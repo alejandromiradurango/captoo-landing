@@ -1,4 +1,5 @@
 import { Footer, Header, Hero, KitDigital, Navigation, Stats } from "./components"
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   return (
@@ -11,6 +12,10 @@ const App = () => {
         <Stats />
       </main>
       {/* <Contact /> */}
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
       <Footer />
     </>
   )

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { logosKitDigital } from "../assets";
 import {
   FeatureFour,
@@ -6,6 +7,7 @@ import {
   FeatureTwo,
 } from "../assets/Icons";
 import HubSpotForm from 'react-hubspot-form';
+import toast from 'react-hot-toast'
 
 const Feature = ({ icon, text }) => (
   <div className="flex flex-col items-center gap-4">
@@ -16,13 +18,13 @@ const Feature = ({ icon, text }) => (
 
 const Form = () => {
 
+  const [phone, setPhone] = useState('')
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { value } = event.target.telefono
-
     const body = {
-        telefono: value
+        telefono: phone
     }
 
     const response = await fetch('https://eo3kdq0qabeo5sb.m.pipedream.net', {
@@ -33,12 +35,15 @@ const Form = () => {
         body: JSON.stringify(body)
     })
 
+    toast.success('Nos comunicaremos en un momento. Gracias!')
+
+    setPhone('')
+    
     const result = await response.json();
 
     console.log(result)
 
-    event.target.telefono.value = ''
-    
+    // toast(result.mensaje_respuesta, { icon: result.tipo_respuesta === 'SUCCESS' ? '✅' : '❌' })
   };
 
   return (
@@ -50,7 +55,7 @@ const Form = () => {
       <div className="py-4 bg-purple-800 text-white flex flex-col items-center">
         <h2 className="text-2xl mb-4">Te llamamos <strong>GRATIS</strong></h2>
         <form className="w-8/12 mx-auto text-black flex flex-col gap-4" onSubmit={handleSubmit}>
-            <input type="text" className="w-full rounded-full p-2" name="telefono" placeholder="Teléfono" required/>
+            <input type="text" className="w-full rounded-full p-2" name="telefono" placeholder="Teléfono" value={phone} required onChange={e => setPhone(e.target.value)}/>
             <label htmlFor="" className="text-white">
                 <input type="checkbox" name="acceptPolicy" id="" required/> Acepta la politica de privacidad para que te podamos llamar
             </label>
