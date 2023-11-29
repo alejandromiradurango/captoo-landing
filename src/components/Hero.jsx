@@ -19,6 +19,7 @@ const Feature = ({ icon, text }) => (
 const Form = () => {
 
   const [phone, setPhone] = useState('')
+  const [formSended, setFormSended] = useState(false)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,6 +39,7 @@ const Form = () => {
     toast.success('Nos comunicaremos en un momento. Gracias!')
 
     setPhone('')
+    setFormSended(true)
     
     const result = await response.json();
 
@@ -48,30 +50,41 @@ const Form = () => {
 
   return (
     <div className="[grid-area:form]">
-      <div className="flex flex-col items-center gap-2 py-4 bg-[#00DC93] text-white">
-        <h1 className="text-2xl font-medium">Llámanos gratis</h1>
-        <a className="text-3xl font-semibold text-purple-700 hover:underline" href="tel:910889029">91 088 90 29</a>
+      <div className={`${formSended ? 'hidden' : 'block'}`}>
+        <div className='flex flex-col items-center gap-2 py-4 bg-[#00DC93] text-white'>
+          <h1 className="text-2xl font-medium">Llámanos gratis</h1>
+          <a className="text-3xl font-semibold text-purple-700 hover:underline" href="tel:910889029">91 088 90 29</a>
+        </div>
+        <div className="py-4 bg-purple-800 text-white flex flex-col items-center">
+          <h2 className="text-2xl mb-4">Te llamamos <strong>GRATIS</strong></h2>
+          <form className="w-8/12 mx-auto text-black flex flex-col gap-4" onSubmit={handleSubmit}>
+              <input type="text" className="w-full rounded-full p-2" name="telefono" placeholder="Teléfono" value={phone} required onChange={e => setPhone(e.target.value)}/>
+              <label htmlFor="" className="text-white">
+                  <input type="checkbox" name="acceptPolicy" id="" required/> Acepta la politica de privacidad para que te podamos llamar
+              </label>
+              <button type="submit" className="py-3 w-full rounded-full bg-[#00dc93] text-white">Solicitar llamada</button>
+          </form>
+        </div>
       </div>
-      <div className="py-4 bg-purple-800 text-white flex flex-col items-center">
-        <h2 className="text-2xl mb-4">Te llamamos <strong>GRATIS</strong></h2>
-        <form className="w-8/12 mx-auto text-black flex flex-col gap-4" onSubmit={handleSubmit}>
-            <input type="text" className="w-full rounded-full p-2" name="telefono" placeholder="Teléfono" value={phone} required onChange={e => setPhone(e.target.value)}/>
-            <label htmlFor="" className="text-white">
-                <input type="checkbox" name="acceptPolicy" id="" required/> Acepta la politica de privacidad para que te podamos llamar
-            </label>
-            <button type="submit" className="py-3 w-full rounded-full bg-[#00dc93] text-white">Solicitar llamada</button>
-        </form>
-      </div>
-      <div className="bg-gray-700 w-full h-auto py-4 pl-12">
-        <h2 className="text-[#00DC93] font-semibold text-center text-3xl mb-3">
-          Escríbenos
-        </h2>  
-        <div className="w-full bg-gray">
-            <HubSpotForm
-                region='eu1'
-                portalId='25596625'
-                formId='f2b750db-38ea-4336-98fc-90380b7bacf2'
-            />
+      <div className={`bg-gray-700 w-full h-auto py-4 ${!formSended ? 'pl-12' : 'px-8 py-20'}`}>
+        {formSended 
+          ? <>
+              <h2 className="text-[#00DC93] font-semibold text-center text-3xl mb-3">Gracias por contactar con nosotros</h2>
+              <p className='text-white text-center'>Nos pondremos en contacto a la mayor brevedad posible</p>
+            </>
+          : null
+        }
+        <div className={`${formSended ? 'hidden' : 'block'}`}>
+          <h2 className="text-[#00DC93] font-semibold text-center text-3xl mb-3">
+            Escríbenos
+          </h2>  
+          <div className="w-full bg-gray">
+              <HubSpotForm
+                  region='eu1'
+                  portalId='25596625'
+                  formId='f2b750db-38ea-4336-98fc-90380b7bacf2'
+              />
+          </div>
         </div>
 
       </div>
