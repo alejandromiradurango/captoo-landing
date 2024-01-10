@@ -49,7 +49,7 @@ const Form = () => {
   };
 
   return (
-    <div className="[grid-area:form]">
+    <div className="[grid-area:form] relative lg:top-[-160px]">
       <div className={`${formSended ? 'hidden' : 'block'}`}>
         <div className='flex flex-col items-center gap-2 py-4 bg-[#00DC93] text-white'>
           <h1 className="text-2xl font-medium">Llámanos gratis</h1>
@@ -113,29 +113,23 @@ const Hero = () => {
   ];
 
   return (
-    <section className="container mt-6 lg:mt-12 lg:mb-24 px-6" id="soluciones">
+    <section className="container mt-6 lg:mt-12 px-6 lg:-mb-24" id="soluciones">
       <div className="[grid-area:text]">
         <p className="mb-8 lg:text-xl">
-          SOMOS UNA <b className="font-semibold">AGENCIA DE MARKETING</b> CON
-          MÁS DE 15 AÑOS DE EXPERIENCIA
+          MÁS DE 15 AÑOS DIGITALIZANDO EL SECTOR DE LAS PYMES
         </p>
-        <h1 className="text-3xl lg:text-5xl 2xl:text-6xl mb-6">
-          Nos ocupamos de tramitar tu{" "}
-          <b className="font-semibold">kit digital</b> de hasta{" "}
+        <h1 className="text-3xl lg:text-4xl 2xl:text-6xl mb-6">
+          <b className="font-semibold">Kit digital</b> para autonómos y pymes con una subvención de hasta{" "}
           <b className="font-semibold">12.000€.</b>
         </h1>
-        <p className="text-lg">
-          Ponte en contacto con nosotros y cuéntanos en qué servicios estás
-          interesado.
-        </p>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0 [grid-area:features]">
+      <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0 [grid-area:features] relative lg:top-[-140px]">
         {features.map(({ icon, text }, index) => (
           <Feature key={index} icon={icon} text={text} />
         ))}
       </div>
       <img
-        className="[grid-area:image]"
+        className="[grid-area:image] relative lg:top-[-200px]"
         src={logosKitDigital}
         alt=""
         width={1091}
