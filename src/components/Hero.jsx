@@ -123,13 +123,13 @@ const Hero = () => {
           <b className="font-semibold">12.000€.</b>
         </h1>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0 [grid-area:features] relative lg:top-[-140px]">
+      <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0 [grid-area:features] relative lg:top-[-160px]">
         {features.map(({ icon, text }, index) => (
           <Feature key={index} icon={icon} text={text} />
         ))}
       </div>
       <img
-        className="[grid-area:image] relative lg:top-[-350px]"
+        className="[grid-area:image] relative lg:top-[-370px]"
         src={logosKitDigital}
         alt=""
         width={1091}
