@@ -129,7 +129,7 @@ const Hero = () => {
         ))}
       </div>
       <img
-        className="[grid-area:image] relative lg:top-[-200px]"
+        className="[grid-area:image] relative lg:top-[-350px]"
         src={logosKitDigital}
         alt=""
         width={1091}
