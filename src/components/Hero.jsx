@@ -7,7 +7,7 @@ import {
   FeatureTwo,
 } from "../assets/Icons";
 import HubSpotForm from 'react-hubspot-form';
-import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom';
 
 const Feature = ({ icon, text }) => (
   <div className="flex flex-col items-center gap-4">
@@ -17,6 +17,7 @@ const Feature = ({ icon, text }) => (
 );
 
 const Form = () => {
+  const navigate = useNavigate()
 
   const [phone, setPhone] = useState('')
   const [formSended, setFormSended] = useState(false)
@@ -36,7 +37,8 @@ const Form = () => {
         body: JSON.stringify(body)
     })
 
-    toast.success('Nos comunicaremos en un momento. Gracias!')
+    // toast.success('Nos comunicaremos en un momento. Gracias!')
+    navigate('gracias')
 
     setPhone('')
     setFormSended(true)
@@ -44,8 +46,6 @@ const Form = () => {
     const result = await response.json();
 
     console.log(result)
-
-    // toast(result.mensaje_respuesta, { icon: result.tipo_respuesta === 'SUCCESS' ? '✅' : '❌' })
   };
 
   return (
@@ -123,13 +123,13 @@ const Hero = () => {
           <b className="font-semibold">12.000€.</b>
         </h1>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0 [grid-area:features] relative lg:top-[-160px]">
+      <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0 [grid-area:features] relative lg:top-[-160px] 2xl:top-[-140px]">
         {features.map(({ icon, text }, index) => (
           <Feature key={index} icon={icon} text={text} />
         ))}
       </div>
       <img
-        className="[grid-area:image] relative lg:top-[-370px]"
+        className="[grid-area:image] relative lg:top-[-370px] 2xl:top-[-250px]"
         src={logosKitDigital}
         alt=""
         width={1091}

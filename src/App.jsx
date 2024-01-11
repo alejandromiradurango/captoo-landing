@@ -1,23 +1,18 @@
-import { Footer, Header, Hero, KitDigital, Navigation, Stats } from "./components"
-import { Toaster } from 'react-hot-toast'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Layout from './pages/layouts/Layout'
+import { Landing, Thanks } from './pages'
+
 
 const App = () => {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Navigation />
-        <KitDigital />
-        <Stats />
-      </main>
-      {/* <Contact /> */}
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-      />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Landing />}/>
+          <Route path='gracias' element={<Thanks />}/>
+        </Route>
+      </Routes>
+    </Router>
   )
 }
 
