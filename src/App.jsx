@@ -10,6 +10,7 @@ const App = () => {
         <Route path='/' element={<Layout />}>
           <Route index element={<Landing />}/>
           <Route path='gracias' element={<Thanks />}/>
+          <Route path='form-llamada-enviado' element={<Thanks />}/>
         </Route>
       </Routes>
     </Router>

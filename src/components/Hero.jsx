@@ -118,15 +118,22 @@ const Hero = () => {
         <p className="mb-8 lg:text-xl">
           MÁS DE 15 AÑOS DIGITALIZANDO EL SECTOR DE LAS PYMES
         </p>
-        <h1 className="text-3xl lg:text-4xl 2xl:text-6xl mb-6">
+        <h1 className="text-3xl lg:text-4xl 2xl:text-5xl mb-6">
           <b className="font-semibold">Kit digital</b> para autonómos y pymes con una subvención de hasta{" "}
           <b className="font-semibold">12.000€.</b>
         </h1>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0 [grid-area:features] relative lg:top-[-160px] 2xl:top-[-140px]">
+      <div className='[grid-area:features] relative lg:top-[-100px]'>
+        <div className='text-2xl'>
+          <h2 className='text-purple-800 font-semibold'>Promoción Enero</h2>
+          <p>1 mes GRATIS del servicio contratado</p>
+          <p>Tramitación por <span className='line-through'>120 euros</span> <span className='text-4xl font-bold text-[#00DC93]'>0 euros</span></p>
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 my-8 gap-y-8 lg:gap-y-0">
         {features.map(({ icon, text }, index) => (
           <Feature key={index} icon={icon} text={text} />
         ))}
+        </div>
       </div>
       <img
         className="[grid-area:image] relative lg:top-[-370px] 2xl:top-[-250px]"
